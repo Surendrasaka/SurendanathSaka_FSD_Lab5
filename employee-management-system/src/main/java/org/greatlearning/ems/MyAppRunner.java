@@ -1,0 +1,31 @@
+package org.greatlearning.ems;
+
+import org.greatlearning.ems.entities.Employee;
+import org.greatlearning.ems.repositories.EmployeeRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
+
+@Component
+public class MyAppRunner implements CommandLineRunner{
+	@Autowired
+	private EmployeeRepository employeeRepository;
+	@Override
+	public void run(String... args) throws Exception {
+		
+		 Employee e1=new Employee(); 
+		 e1.setFirstName("Surendra");
+		 e1.setLastName("Saka"); 
+		 e1.setEmail("surendra@gmail.com");
+		  
+		 Employee e2=new Employee(); 
+		 e2.setFirstName("Kiran");
+		 e2.setLastName("Gorre"); 
+		 e2.setEmail("kiran@gmail.com");
+		 
+		 employeeRepository.save(e1); 
+		 employeeRepository.save(e2);
+	
+	}
+
+}
